@@ -1,0 +1,23 @@
+<launch>
+  <arg name="model" default="$(find wheel_duck_simulation)/urdf/wheel_duck2.xacro" />
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model) --inorder"/>
+  
+  <arg name="world_file" default="willowgarage.world"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find wheel_duck_simulation)/worlds/$(arg world_file)"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model wheel_duck2" output="screen"/>
+
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
+  <node pkg="teleop_twist_keyboard" name="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/>
+
+</launch>
