@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ASCII'?>
+<sdf version='1.6'>
+  <model name='wheel_duck2'>
+    <link name='base_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>2</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/porizou/wheel_duck_simulation/meshes/wheel_duck2.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>file:///home/porizou/wheel_duck_simulation/meshes/wheel_duck2.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <static>false</static>
+  </model>
+</sdf>
